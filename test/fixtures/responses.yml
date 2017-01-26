@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  userkey: 
+  surveyid: 
+  question: 
+  answer: MyString
+
+two:
+  userkey: 
+  surveyid: 
+  question: 
+  answer: MyString

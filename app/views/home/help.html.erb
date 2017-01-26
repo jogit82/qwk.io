@@ -1,0 +1,99 @@
+<header>
+   <div id="header">
+      <div class="centered">
+         <div class="logospace">
+            <div id="logo">
+               <a href="/"><img class="logo" src="/img/logo.png" /></a>
+            </div>
+         </div>
+         <div id="navigation">
+           <%= render :partial => 'layouts/menu' %>
+         </div>
+      </div>
+   </div>
+</header>
+<div id="main" role="main">
+   <div class="centered">
+      <div id="admin-survey">
+         <div class="survey-link">
+            <h1>How do you like..  use this?</h1>
+            <p><b>Qwk.io is incredibly simple:</b></p>
+            <p>
+              <ol>
+                <li>Create your survey with the world’s simplest markup. It takes just a couple of minutes. It looks like a survey.</li>
+                <li>You will get two links: a public link where people can take the survey, and a private link where you can view responses. Distribute the public link to people you would like to respond. Keep the private link secret, unless you want everyone to see all of the responses, in which case we’re fine if you send it out.</li>
+                <li>The first time you view the results of your survey, it costs you a buck (US$1). That’s it. From then on, whenever you (or anyone else) views responses, it’s free. Payments are accepted via PayPal and are super easy, just like everything else here.</li>
+              </ol>
+            </p>
+
+            <p><b>Survey Advice</b></p>
+            <p>We built Qwk.io because we needed something like it. So we’ve had some experience with surveys, and we’ve done things right and we’ve done things wrong. Here’s some general advice based on our experience:</p>
+            <p>
+              <ul>
+                <li>Use number ranges in radio buttons rather than single line text to collect numeric responses. Odds are you’re going to want to group responses into ranges anyway, and it’s easier to process the results if people are selecting “six to ten” rather than writing in “7”, “nine”, “6”, and “eihgt” [sic].</li>
+                <li>Arrange answers in a consistent manner. Either arrange answers alphabetically or in ascending numerical order, or arrange them by some other logical order like distance or month. But be consistant, as much as possible.</li>
+                <li>Avoid leading questions or leading answers. If you find yourself writing “Don’t you think that…”, you’ve gone astray. Likewise, if your ratings are “Terrible”, “Poor”, “Fair”, “Good”, and “Excellent!!!!!!!”, you may be skewing your results.</li>
+              </ul>
+            </p>
+
+           <p><b><a name="markup">Markup</a></b></p>
+
+           <p>Qwk.io supports four basic question types: single choice, multiple choice, single line text, and multiple line text.</p>
+
+           <p>Single Choice</p>
+           <p>When you want to ask a user to choose between two or more options, and only want one answer, single choice is the way to go. Qwk.io can render single choice questions as either a series of radio buttons or as a dropdown box. Both get you the same data, only the presentation is different.</p>
+
+           <p>Radio Buttons are created like this:</p>
+           <pre>
+           ( ) Choice One
+           ( ) Choice Two
+           ( ) Choice Three
+           </pre>
+
+           <p>…and you can continue on from there to as many choices as you like.  It might not be a bad idea to include a <i>"None"</i> option as well, since radio buttons cannot be unchecked once they're selected. Qwk.io will never do this for you, since your survey is your business.</p>
+           <p>But what if you don’t like the way it looks when there are 30 options to choose from, so the user might have to scroll back up to see the question by the time they’re read all the options? Well, that’s when to use a dropdown.</p>
+
+           <p>Dropdowns are created like this:</p>
+           <pre>
+           < > Choice One
+           < > Choice Two
+           < > Choice Three
+           </pre>
+
+           <p>Multiple Choice</p>
+           <p>Multiple choice questions allow a user to pick zero or more answers from a predefined list. Qwk.io implements multiple choice questions as checkboxes; you can create them like this:</p>
+           <pre>
+           [ ] Choice 1
+           [ ] Choice 2
+           [ ] Choice 3
+           </pre>
+
+           <p>Note that users can select anywhere from zero to every choice listed; Qwk.io does not support requiring an answer or limiting a user to at most N answers (but hey, if that’s a feature you want, by all means let us know).</p>
+
+           <p>Single Line Text</p>
+           <p>This is pretty self explanatory – if you want a user to write in a short response without having predefined options, the single line is for you. This is ideal for open ended number questions or questions where you’re pretty sure just a few words will suffice. You create single line text questions with three or more underscore characters, like this:</p>
+
+           <pre>
+           How many times have you used our service?
+           ___
+           </pre>
+
+           <p>…or like this:</p>
+
+           <pre>
+           How many times have you used our service?
+           _____________________________
+           </pre>
+
+           <p>Multiple Line Text</p>
+           <p>When you want to collect a response that’s likely to be longer than fits in a single line text, use the multiple line text (aka Textbox) answer type. It allows users to type arbitrarily long answers – they can write a book in that thing if they are so inclined. You can create a multiple line text answer by putting three underscores on two consecutive lines, like so:</p>
+            
+           <pre>
+           What else could we do to improve the service?
+           ___
+           ___
+           </pre>
+         </div>
+      </div>
+   </div>
+</div>

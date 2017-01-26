@@ -1,0 +1,96 @@
+<header>
+   <div id="header">
+      <div class="centered">
+         <div class="logospace">
+            <div id="logo">
+               <a href="/"><img class="logo" src="/img/logo.png" /></a>
+            </div>
+            <div id="tagline">
+               <h1><%= @rendering.title %></h1>
+            </div>
+         </div>
+         <div id="navigation">
+           <%= render :partial => 'layouts/menu' %>
+         </div>
+      </div>
+   </div>
+</header>
+<div id="main" role="main">
+   <div class="centered">
+      <div id="public-survey">
+         <h2><%= @rendering.title %></h2>
+         <div id="public-intro"><%= @rendering.description %></div>
+         <%= form_tag(request.fullpath) do %>
+            <ol>
+               <% @rendering.questions.each do |q| %>
+                  <li>
+                     <div class="q-title"><%= q[:title] %></div>
+                     <div class="q-answers">
+
+                     <% if q[:type] == 'radio' %>
+                       <% i = 0 %>
+                       <% q[:options].each do |option| %>
+                         <div class="q-radio">
+                            <input name="Q[<%= q[:idx] %>]" id="Q_<%= q[:idx] %>_R<%= (i += 1) %>" type="radio" value="<%= i %>" />
+                            <label for="Q_<%= q[:idx] %>_R<%= i %>"><%= option %></label>
+                         </div>
+                       <% end %>
+                     <% end %>
+
+                     <% if q[:type] == 'pointrating' %>
+                         <div class="q-scale">
+                         <% q[:points].times do |i| %>
+                           <div class="q-ratio">
+                             <input name="Q[<%= q[:idx] %>]" value="<%= i + 1 %>" id="Q_<%= q[:idx] %>_R<%= i %>" type="radio" />
+                             <label for="Q_<%= q[:idx] %>_R<%= i %>"><%= i + 1 %></label>
+                           </div>
+                         <% end %>
+                         </div>
+                     <% end %>
+
+                    <% if q[:type] == 'checkbox' %>
+                        <div class="q-options">
+                          <% i = 0 %>
+                          <% q[:options].each do |option| %>
+                            <div class="q-checkbox">
+                              <input name="Q[<%= q[:idx] %>][<%= (i += 1) %>]" id="Q_<%= q[:idx] %>_CB<%= i %>" type="checkbox" />
+                              <label for="Q_<%= q[:idx] %>_CB<%= i %>"><%= option %></label>
+                            </div>
+                          <% end %>
+                        </div>
+                    <% end %>
+
+                    <% if q[:type] == 'dropdown' %>
+                        <div class="q-dropdown">
+                           <select name="Q[<%= q[:idx] %>]">
+                             <% i = 0 %>
+                             <% q[:options].each do |option| %>
+                               <option value="<%= (i += 1) %>"><%= option %></option>
+                             <% end %>
+                           </select>
+                        </div>
+                    <% end %>
+
+                    <% if q[:type] == 'singleline' %>
+                       <div class="q-text">
+                          <input type="textbox" name="Q[<%= q[:idx] %>]" />
+                       </div>
+                    <% end %>
+
+                    <% if q[:type] == 'multiline' %>
+                       <div class="q-textarea">
+                          <textarea name="Q[<%= q[:idx] %>]" rows="5"></textarea>
+                       </div>
+                    <% end %>
+                         
+                    </div>
+                  </li>
+               <% end %>
+            </ol>
+            <div class="public-submit">
+               <input type="submit" id="public-submit" name="public-submit" value="Submit"/>
+            </div>
+         <% end %>
+      </div>
+   </div>
+</div>

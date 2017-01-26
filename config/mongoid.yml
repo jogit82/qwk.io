@@ -1,0 +1,19 @@
+defaults: &defaults
+  host: 192.168.0.10
+  allow_dynamic_fields: true
+
+development:
+  <<: *defaults
+  database: qwkio
+
+test:
+  <<: *defaults
+  database: qwkio_test
+
+# set these environment variables on your prod server
+production:
+  host: <%= ENV['MONGOID_HOST'] %>
+  port: <%= ENV['MONGOID_PORT'] %>
+  username: <%= ENV['MONGOID_USERNAME'] %>
+  password: <%= ENV['MONGOID_PASSWORD'] %>
+  database: <%= ENV['MONGOID_DATABASE'] %>
