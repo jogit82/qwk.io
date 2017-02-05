@@ -44,3 +44,20 @@ MONGODB (0.1ms) qwkio['surveys'].insert({"closed"=>false, "_id"=>BSON::ObjectId(
 Rendered layouts/_menu.erb (0.4ms)
 Rendered surveys/create.html.erb within layouts/application (6.4ms)
 Completed 200 OK in 131ms (Views: 17.7ms)
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (11.9ms) admin['$cmd'].find({:isMaster=>1}).limit(-1)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /Users/jokeller/Code/qwkio/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-05 00:11:58 -0800
+  Processing by HomeController#index as HTML
+Rendered layouts/_menu.erb (0.5ms)
+Rendered home/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 20ms (Views: 19.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-05 00:11:59 -0800
+  Processing by HomeController#index as HTML
+Rendered layouts/_menu.erb (0.6ms)
+Rendered home/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 17ms (Views: 16.5ms)
