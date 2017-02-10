@@ -1,44 +1,35 @@
-<header>
-   <div id="header">
-      <div class="centered">
-         <div class="logospace">
-            <div id="logo">
-               <a href="/"><img class="logo" src="/img/logo.png" /></a>
-            </div>
-         </div>
-         <div id="navigation">
-           <%= render :partial => 'layouts/menu' %>
-         </div>
-      </div>
-   </div>
-</header>
-<div id="main" role="main">
-   <div class="centered">
-      <div id="post-survey">
-
-               <div class="survey-link">
-                   <h1>Public URL:</h1>
-                   <input type="textbox" value="<%= take_url(:id => @survey.surveyid.to_s(36)) %>" />
-                   <%= link_to 'View', take_url(:id => @survey.surveyid.to_s(36)), :target => '_blank' %>
-							
-                   <p>
-                       Share this link with anyone you want to answer your survey.  Be sure to check over your survey first to make sure everything looks okay.
-                       If anything's wrong, just hit the back button and create another one.  Remember, you won't have to pay until you want to actually download
-                       the results of a survey.
-                   </p>
-               </div>
-
-         <div class="survey-link">
-            <h1>Private URL:</h1>
-            <input type="textbox" value="<%= results_url(:id => @survey.adminkey) %>" />
-
-            <p>
-               Keep this link private!  It will allow you to download your survey results, see how many people have responded, or close the survey.
-                       <u>DO NOT</u> lose this link!  Since Qwk.io is completely anonymous, there's no way to get it back if you lose it.
-            </p>
-         </div>
-
-
-      </div>
-   </div>
+<div class="container">
+  <div class="row panel panel-success">
+    <div class="panel-heading">Public URL</div>
+    <div class="panel-body">
+      <input type="textbox" class="js-publicURL URLTextbox" value="<%= take_url(:id => @survey.surveyid.to_s(36)) %>" />
+      <button class="btn btn-default js-copyPublicURLbtn">Copy</button>
+      <%= link_to 'View Survey', take_url(:id => @survey.surveyid.to_s(36)), :class => 'btn btn-default', :target => '_blank' %>
+      <p>Share this link with anyone you want to answer your survey.  Be sure to check over your survey first to make sure everything looks okay. If anything's wrong, just hit the back button and create another one.  Remember, you won't have to pay until you want to actually download the results of a survey.</p>
+    </div>
+  </div>
+  <div class="row panel panel-info">
+    <div class="panel-heading">Private URL</div>
+    <div class="panel-body">
+      <input type="textbox" class="js-privateURL URLTextbox" value="<%= results_url(:id => @survey.adminkey) %>" />
+      <button class="btn btn-default js-copyPrivateURLbtn">Copy</button>
+      <%= link_to 'Download Results', results_url(:id => @survey.adminkey), :class => 'btn btn-default', :target => '_blank' %>
+      <p>Keep this link private!  It will allow you to download your survey results, see how many people have responded, or close the survey.<u>DO NOT</u> lose this link!  Since Qwk.io is completely anonymous, there's no way to get it back if you lose it.</p>
+    </div>
+  </div>
 </div>
+<script>
+var copyPublicURLbtn = document.querySelector('.js-copyPublicURLbtn');
+copyPublicURLbtn.addEventListener('click', function(event){
+  var copyPublicURL = document.querySelector('.js-publicURL');
+  copyPublicURL.select();
+  var successful = document.execCommand('copy');
+});
+
+var copyPrivateURLbtn = document.querySelector('.js-copyPrivateURLbtn');
+copyPrivateURLbtn.addEventListener('click', function(event){
+  var copyPrivateURL = document.querySelector('.js-privateURL');
+  copyPrivateURL.select();
+  document.execCommand('copy');
+});
+</script>

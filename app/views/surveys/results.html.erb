@@ -1,40 +1,27 @@
-<header>
-   <div id="header">
-      <div class="centered">
-         <div class="logospace">
-            <div id="logo">
-               <a href="/"><img class="logo" src="/img/logo.png" /></a>
-            </div>
-         </div>
-         <div id="navigation">
-           <%= render :partial => 'layouts/menu' %>
-         </div>
-      </div>
-   </div>
-</header>
-<div id="main" role="main">
-   <div class="centered">
-      <div id="admin-survey">
-         <h2> <%= @rendering.title %> (<%= @count %> <%= @count == 1 ? 'Result' : 'Results' %>)</h2>
-         <div class="survey-link">
+<div class="container">
+   <div class="row">
+      <div class="panel panel-info">
+         <div class="panel-heading"> <%= @rendering.title %> (<%= @count %> <%= @count == 1 ? 'Result' : 'Results' %>)</div>
+         <div class="panel-body">
             <h1>Download Results</h1>
-            <div class="download-links">
-               <%= link_to 'CSV (Excel)', request.fullpath + '.csv' %> |
-               <%= link_to 'XML', request.fullpath + '.xml' %> |
-               <%= link_to 'JSON', request.fullpath + '.json' %>
+            <div>
+               <%= link_to 'CSV (Excel)', request.fullpath + '.csv', :class => 'btn btn-default' %>
+               <%= link_to 'XML', request.fullpath + '.xml', :class => 'btn btn-default' %>
+               <%= link_to 'JSON', request.fullpath + '.json', :class => 'btn btn-default' %>
             </div>
             <p> Click one of the links above to download the results of your survey.  CSV (comma-separated values) format should work
                with most major spreadsheet applications such as Microsoft Excel.  The XML and JSON formats might be useful for accessing
                survey results programmatically.</p>
          </div>
-         <div class="survey-link">
+         <div class="panel-body">
+           <h1>Open/Close Survey</h1>
             <% if (@closed) %>
-                <h1><%= link_to 'Re-Open Survey', unclosesurvey_url(:id => params[:id]) %></h1>
+                <%= link_to 'Re-Open Survey', unclosesurvey_url(:id => params[:id]), :class => 'btn btn-default' %>
                 <p>
                   This survey is currently closed.  Click the link above to re-open it.
                 </p>
             <% else %>
-               <h1><%= link_to 'Close Survey', closesurvey_url(:id => params[:id]) %></h1>
+                 <%= link_to 'Close Survey', closesurvey_url(:id => params[:id]), :class => 'btn btn-default' %>
                <p>
                  When you close your survey, anyone who visits your survey's public URL will get an error message saying the survey has been
                  closed.  You will still be able to access the survey results even after you close a survey.  Don't worry if you close a

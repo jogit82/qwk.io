@@ -1,111 +1,69 @@
-<header>
-   <div id="header">
-      <div class="centered">
-         <div class="logospace">
-            <div id="logo">
-               <a href="/"><img class="logo" src="/img/logo.png" /></a>
-            </div>
-            <div id="tagline">
-               <h1>Super easy surveys for just a buck.</h1>
-               <h2>Actually, for FREE while we're in beta!</h2>
-            </div>
-         </div>
-         <div id="navigation">
-           <%= render :partial => 'layouts/menu' %>
-         </div>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row text-center">
+      <h1>Qwk.io!</h2>
+      <p>"Create your survey in the world's easiest markup."</p>
+    </div>
+    <hr>
+    <div class="row text-center">
+      <div class="col-lg-offset-1 col-lg-2 col-md-offset-1 col-md-2  col-xs-offset-1 col-xs-5">
+        <p>1. Create</p>
+        <img src="/img/create.png">
       </div>
-   </div>
-</header>
-<div id="main" role="main">
-   <div class="centered">
-      <div id="new-survey">
-         <%= form_tag(surveys_url) do %>
-            <label class="textareaContainer">
-               <textarea id="survey-text" name="survey" rows="1" cols="1">
+      <div class="col-lg-offset-1 col-lg-2 col-md-offset-1 col-md-2 col-xs-offset-1 col-xs-5">
+        <p>2. URLs</p>
+        <img src="/img/link.png">
+      </div>
+      <div class="col-lg-offset-1col-lg-2 col-md-offset-1 col-md-2 col-xs-offset-1 col-xs-5">
+        <p>3. Take</p>
+        <img src="/img/take.png">
+      </div>
+      <div class="col-lg-offset-1 col-lg-2 col-md-offset-1 col-md-2 col-xs-offset-1 col-xs-5">
+        <p>4. Result</p>
+        <img src="/img/result.png">
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-5  panel panel-info">
+      <div class="row panel-heading">Step 1: Create</div>
+      <div class="row panel-body">Create your survey in markup and submit.</div>
+      <%= form_tag(surveys_url) do %>
+      <textarea class="form-control" name="survey" rows="22" wrap="soft">
 Enter your survey title here
-
 Any text you enter here will display below the title.
-
 1) Example multiple choice question
 [ ] One
 [ ] Two
 [ ] Three
-
 2) Example radio list question
 ( ) One
 ( ) Two
 ( ) Three
-
 3) Example rating between 1-5
 (1) (2) (3) (4) (5)
-
 4) Example text response question
 ___
-
 5) You can do a multi-line textbox too!
 ___
-___</textarea>
-            </label>
-            <table id="survey-actions">
-               <tr>
-                  <td>
-                     <div>
-                     <button type="button">
-                     <span class="ordinal">1</span>
-                     <p>Create your survey in the text area above using the world's easiest markup (below).</p>
-                     </div>
-                  </button>
-                  </td>
-                  <td>
-                     <div class="save">
-                        <button type="submit">
-                           <span class="ordinal">2</span>
-                           <p>Click Here to save your survey and get links.</p>
-                        </button>
-                     </div>
-                  </td>
-                  <td>
-                  <div>
-                  <button type="button">
-                  <span class="ordinal">3</span>
-                  <p>Send your public link via email, Facebook, or Twitter. Use your private link to view unlimited results for only $1!</p>
-               </div>
-               </button>
-            </td>
-            </tr>
-         </table>
-         <% end %>
+___
+6) Example dropdown question
+< > One
+< > Two
+< > Three
+    </textarea><br>
+      <button type="submit" class="btn btn-default">Create</button><% end %><br>
+    </div>
+    <div class="col-md-offset-1 col-md-5 panel panel-info">
+      <div class="row panel-heading">Step 2: URLs</div>
+      <div class="row panel-body">After your survey has been created. You will be given two URLs.</div>
+      <div class="row panel-body"><strong>Public URL:</strong> Share this link with anyone you want to answer your survey.  Be sure to check over your survey first to make sure everything looks okay.
+      If anything's wrong, just hit the back button and create another one. </div>
+      <div class="row panel-body"><strong>Private URL:</strong> Keep this link private!  It will allow you to download your survey results, see how many people have responded, or close the survey. <u>DO NOT</u> lose this link!  Since Qwk.io is completely anonymous, there's no way to get it back if you lose it.
       </div>
-   </div>
-   <div class="centered">
-      <div id="markup">
-         <div class="header">Markup Cheat Sheet</div>
-         <div id="markup-table">
-            <div class="row">
-               <div class="code right">#)</div>
-               <div title="1) Question one..." class="desc">Question number</div>
-               <div class="code left">[ ]</div>
-               <div title="[ ] Check Me!" class="desc left">Checkbox</div>
-            </div>
-            <div class="row">
-               <div class="code right">&lt; &gt;</div>
-               <div title="< > Select Me!" class="desc left">Dropdown</div>
-               <div class="code left">( )</div>
-               <div title="( ) Click Me!" class="desc">Radio button</div>
-            </div>
-            <div class="row">
-               <div class="code right">(1) (2) ...</div>
-               <div title="(1) (2) (3) (4) (5)" class="desc left">On a scale of 1...n</div>
-               <div class="code left">___</div>
-               <div title="Three or more underscores" class="desc">Text box</div>
-            </div>
-         </div>
-         <div id="markup-help">
-            <a href="/help/#markup"><img src="/img/icon-help.png" alt="More..."></a>
-         </div>
-      </div>
-   </div>
+    </div>
+  </div>
 </div>
-<script>
-  document.getElementById('survey-text').focus();
-</script>

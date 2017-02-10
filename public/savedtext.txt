@@ -1,0 +1,105 @@
+<header>
+   <div id="header">
+      <div class="centered">
+         <div id="navigation">
+           <%= render :partial => 'layouts/menu' %>
+         </div>
+      </div>
+   </div>
+</header>
+<div>
+<img src="/img/create100.png"></div>
+<div id="main" role="main">
+   <div class="centered">
+      <div id="new-survey">
+         <%= form_tag(surveys_url) do %>
+            <label class="textareaContainer">
+               <textarea id="survey-text" name="survey" rows="1" cols="1">
+Enter your survey title here
+
+Any text you enter here will display below the title.
+
+1) Example multiple choice question
+[ ] One
+[ ] Two
+[ ] Three
+
+2) Example radio list question
+( ) One
+( ) Two
+( ) Three
+
+3) Example rating between 1-5
+(1) (2) (3) (4) (5)
+
+4) Example text response question
+___
+
+5) You can do a multi-line textbox too!
+___
+___
+</textarea>
+            </label>
+            <table id="survey-actions">
+               <tr>
+                  <td>
+                     <div>
+                     <button type="button">
+                     <span class="ordinal">1</span>
+                     <p>Create your survey in the text area above using the world's easiest markup (below).</p>
+                     </div>
+                  </button>
+                  </td>
+                  <td>
+                     <div class="save">
+                        <button type="submit">
+                           <span class="ordinal">2</span>
+                           <p>Click Here to save your survey and get links.</p>
+                        </button>
+                     </div>
+                  </td>
+                  <td>
+                  <div>
+                  <button type="button">
+                  <span class="ordinal">3</span>
+                  <p>Send your public link via email, Facebook, or Twitter. Use your private link to view unlimited results for only $1!</p>
+               </div>
+               </button>
+            </td>
+            </tr>
+         </table>
+         <% end %>
+      </div>
+   </div>
+   <div class="centered">
+      <div id="markup">
+         <div class="header">Markup Cheat Sheet</div>
+         <div id="markup-table">
+            <div class="row">
+               <div class="code right">#)</div>
+               <div title="1) Question one..." class="desc">Question number</div>
+               <div class="code left">[ ]</div>
+               <div title="[ ] Check Me!" class="desc left">Checkbox</div>
+            </div>
+            <div class="row">
+               <div class="code right">&lt; &gt;</div>
+               <div title="< > Select Me!" class="desc left">Dropdown</div>
+               <div class="code left">( )</div>
+               <div title="( ) Click Me!" class="desc">Radio button</div>
+            </div>
+            <div class="row">
+               <div class="code right">(1) (2) ...</div>
+               <div title="(1) (2) (3) (4) (5)" class="desc left">On a scale of 1...n</div>
+               <div class="code left">___</div>
+               <div title="Three or more underscores" class="desc">Text box</div>
+            </div>
+         </div>
+         <div id="markup-help">
+            <a href="/help/#markup"><img src="/img/icon-help.png" alt="More..."></a>
+         </div>
+      </div>
+   </div>
+</div>
+<script>
+  document.getElementById('survey-text').focus();
+</script>
