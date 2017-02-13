@@ -90,9 +90,7 @@ class SurveysController < ApplicationController
   def create
     @survey = Survey.new
     @ak = UUIDTools::UUID.timestamp_create.to_s
-    surveyid = SurveyId.first.safely.inc(:nextid, 1) # TODO: If running on multiple servers, we need a dedicated "survey id generator" in the cluster
 
-    @survey[:surveyid] = surveyid # auto-incremementing server ID used for URL lookups
     @survey[:adminkey] = Digest::MD5.digest(@ak).unpack("Q")[0].to_s(36) # 64bit hash for admins
     @survey[:rawtext] = params[:survey]
 
@@ -136,13 +134,13 @@ class SurveysController < ApplicationController
 
   def toggle
     @no_follow = true # If Google finds this link, tell it not to index or follow
+
+    Survey.where(:adminkey => params[:id]).update(closed: params[:state]);
     survey = Survey.where(:adminkey => params[:id]).only(:adminkey, :surveyid).limit(1)[0]
     if (survey == nil)
       render_404
       return
     end
-
-    survey.update_attributes!(:closed => params[:state])
 
     respond_to do |format|
       format.html { redirect_to(results_url(:id => survey.adminkey)) }

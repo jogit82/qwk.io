@@ -1,5 +1,5 @@
-require 'fastercsv'
 require 'json'
+require 'csv'
 require 'active_model/serializers/xml'
 
 module SurveysHelper
@@ -89,7 +89,6 @@ module SurveysHelper
     end
 
     def to_csv
-      #pivots the responses in the survey
       map = { }
       @survey.responses.each do |r|
         userkey = r['userkey']
@@ -98,7 +97,7 @@ module SurveysHelper
       end
 
       #generate csv string
-      csv = FasterCSV.generate do |r|
+      CSV.generate(headers: true) do |r|
         #build header row
         headers = ["User Key", "Timestamp"]
         @questions.each do |q| headers.push( q[:title]) end
@@ -108,8 +107,6 @@ module SurveysHelper
           r << [user, map[user][:timestamp]] + map[user][:answers]
         end
       end
-
-      csv
     end
 
     def to_json

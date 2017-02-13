@@ -9,7 +9,7 @@ class Response
   field :answers, :type => Array
   field :timestamp, :type => Time
 
-  index :surveyid
+  index({ surveyid: 1 }, { unique: false, name: "surveyid_index" })
 
   validates_presence_of :surveyid
   validates_presence_of :userkey
