@@ -2675,3 +2675,351 @@ MONGODB | 192.168.0.10:27017 | qwkio_development.count | SUCCEEDED | 0.000694399
 Completed 200 OK in 21ms (Views: 5.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-02-12 22:14:19 -0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_menu.erb (0.6ms)
+Completed 200 OK in 65ms (Views: 36.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-12 22:14:19 -0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_menu.erb (0.5ms)
+Completed 200 OK in 12ms (Views: 8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-12 22:14:22 -0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_menu.erb (0.5ms)
+Completed 200 OK in 18ms (Views: 8.1ms)
+
+
+Started POST "/surveys" for 127.0.0.1 at 2017-02-12 22:14:24 -0800
+Processing by SurveysController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V9/SGrWw9oBiwG/OBFcnQLOUwASjFm1wukVF8zAqv5jHSDFM9ppK5EICc6nsbbJky8oXdpC4Ge3TA/dFnUu8Sg==", "survey"=>"Enter your survey title here\r\nAny text you enter here will display below the title.\r\n1) Example multiple choice question\r\n[ ] One\r\n[ ] Two\r\n[ ] Three\r\n2) Example radio list question\r\n( ) One\r\n( ) Two\r\n( ) Three\r\n3) Example rating between 1-5\r\n(1) (2) (3) (4) (5)\r\n4) Example text response question\r\n___\r\n5) You can do a multi-line textbox too!\r\n___\r\n___\r\n6) Example dropdown question\r\n< > One\r\n< > Two\r\n< > Three\r\n    "}
+MONGODB | Topology type 'unknown' initializing.
+MONGODB | Server 192.168.0.10:27017 initializing.
+MONGODB | execution expired
+MONGODB | execution expired
+MONGODB | Topology type 'unknown' changed to type 'single'.
+MONGODB | Server description for 192.168.0.10:27017 changed from 'unknown' to 'standalone'.
+MONGODB | There was a change in the members of the 'single' topology.
+MONGODB | Server description for 192.168.0.10:27017 changed from 'unknown' to 'standalone'.
+MONGODB | There was a change in the members of the 'single' topology.
+MONGODB | 192.168.0.10:27017 | qwkio_development.count | STARTED | {"count"=>"surveyid", "query"=>{"seq_name"=>"survey_surveyid"}}
+MONGODB | 192.168.0.10:27017 | qwkio_development.count | SUCCEEDED | 0.059942s
+MONGODB | 192.168.0.10:27017 | qwkio_development.findandmodify | STARTED | {"findandmodify"=>"surveyid", "query"=>{"seq_name"=>"survey_surveyid"}, "update"=>{"$inc"=>{:number=>1}}, "new"=>true, "upsert"=>true, "bypassDocumentValidation"=>false}
+MONGODB | 192.168.0.10:27017 | qwkio_development.findandmodify | SUCCEEDED | 0.001877s
+MONGODB | 192.168.0.10:27017 | qwkio_development.insert | STARTED | {"insert"=>"surveys", "documents"=>[{"_id"=>BSON::ObjectId('58a14edcbcef1e92fd68717a'), "closed"=>false, "adminkey"=>"182cm2pzeu3qj", "rawtext"=>"Enter your survey title here\r\nAny text you enter here will display below the title.\r\n1) Example multi...
+MONGODB | 192.168.0.10:27017 | qwkio_development.insert | SUCCEEDED | 0.001702s
+  Rendering surveys/create.html.erb within layouts/application
+  Rendered surveys/create.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_menu.erb (0.4ms)
+Completed 200 OK in 27278ms (Views: 14.3ms)
+
+
+Started GET "/bkw" for 127.0.0.1 at 2017-02-12 22:15:00 -0800
+Processing by SurveysController#take as HTML
+  Parameters: {"id"=>"bkw"}
+MONGODB | 192.168.0.10:27017 | qwkio_development.find | STARTED | {"find"=>"surveys", "filter"=>{"surveyid"=>15008}, "projection"=>{"_id"=>1, "rawtext"=>1, "closed"=>1}}
+MONGODB | 192.168.0.10:27017 | qwkio_development.find | SUCCEEDED | 0.01863s
+  Rendering surveys/take.html.erb within layouts/application
+  Rendered surveys/take.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_menu.erb (0.5ms)
+Completed 200 OK in 40ms (Views: 13.2ms)
+
+
+Started POST "/bkw" for 127.0.0.1 at 2017-02-12 22:15:03 -0800
+Processing by SurveysController#respond as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tZaO9MmiQ2JNlIYcQ9CnizfTujCExI41mXqn38U91u4IGeF981sYqOd+mV8IAtNwRnS9oOAOBWYUqsNEo955IA==", "Q"=>{"4"=>"", "5"=>"", "6"=>"1"}, "public-submit"=>"Submit", "id"=>"bkw"}
+MONGODB | 192.168.0.10:27017 | qwkio_development.find | STARTED | {"find"=>"surveys", "filter"=>{"surveyid"=>15008}, "projection"=>{"_id"=>1, "rawtext"=>1, "closed"=>1}}
+MONGODB | 192.168.0.10:27017 | qwkio_development.find | SUCCEEDED | 0.004203999999999999s
+DEPRECATION WARNING: Method each_key is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.1/classes/ActionController/Parameters.html (called from respond at /Users/jokeller/Code/qwkio/app/controllers/surveys_controller.rb:66)
+MONGODB | 192.168.0.10:27017 | qwkio_development.insert | STARTED | {"insert"=>"responses", "documents"=>[{"_id"=>BSON::ObjectId('58a14ee7bcef1e92fd68717b'), "surveyid"=>BSON::ObjectId('58a14edcbcef1e92fd68717a'), "userkey"=>"c21aecb2f1b311e6b9242cf0ee31f7c4", "timestamp"=>2017-02-13 06:15:03 UTC, "answers"=>[{"questi...
+MONGODB | 192.168.0.10:27017 | qwkio_development.insert | SUCCEEDED | 0.002222s
+  Rendering surveys/respond.html.erb within layouts/application
+  Rendered surveys/respond.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_menu.erb (0.7ms)
+Completed 200 OK in 41ms (Views: 8.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-12 22:15:07 -0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_menu.erb (0.4ms)
+Completed 200 OK in 22ms (Views: 11.0ms)
+
+
+Started GET "/about/" for 127.0.0.1 at 2017-02-12 22:16:27 -0800
+Processing by HomeController#about as HTML
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_menu.erb (0.5ms)
+Completed 200 OK in 29ms (Views: 16.0ms)
+
+
+Started GET "/help/" for 127.0.0.1 at 2017-02-12 22:16:29 -0800
+Processing by HomeController#help as HTML
+  Rendering home/help.html.erb within layouts/application
+  Rendered home/help.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_menu.erb (0.4ms)
+Completed 200 OK in 20ms (Views: 10.1ms)
+
+
+Started GET "/stylesheets/bootstrap.min.css.map" for 127.0.0.1 at 2017-02-12 22:16:39 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/stylesheets/bootstrap.min.css.map"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `call'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered collection of /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [20 times] (43.6ms)
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (11.6ms)
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (256.3ms)
+Started GET "/about/" for 127.0.0.1 at 2017-02-12 22:17:05 -0800
+Processing by HomeController#about as HTML
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_menu.erb (0.5ms)
+Completed 200 OK in 15ms (Views: 10.4ms)
+
+
+Started GET "/stylesheets/bootstrap.min.css.map" for 127.0.0.1 at 2017-02-12 22:17:05 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/stylesheets/bootstrap.min.css.map"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `call'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered collection of /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [20 times] (12.0ms)
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.1ms)
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (257.4ms)
+Started GET "/" for 127.0.0.1 at 2017-02-12 22:17:08 -0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_menu.erb (0.3ms)
+Completed 200 OK in 19ms (Views: 9.2ms)
+
+
+Started GET "/stylesheets/bootstrap.min.css.map" for 127.0.0.1 at 2017-02-12 22:17:08 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/stylesheets/bootstrap.min.css.map"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `call'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.2ms)
+  Rendered collection of /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [20 times] (10.6ms)
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (197.5ms)
+Started GET "/help/" for 127.0.0.1 at 2017-02-12 22:17:14 -0800
+Processing by HomeController#help as HTML
+  Rendering home/help.html.erb within layouts/application
+  Rendered home/help.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_menu.erb (0.4ms)
+Completed 200 OK in 11ms (Views: 9.2ms)
+
+
+Started GET "/stylesheets/bootstrap.min.css.map" for 127.0.0.1 at 2017-02-12 22:17:14 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/stylesheets/bootstrap.min.css.map"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `call'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered collection of /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [20 times] (21.1ms)
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (206.7ms)
+Started GET "/examples/" for 127.0.0.1 at 2017-02-12 22:17:19 -0800
+Processing by HomeController#examples as HTML
+  Rendering home/examples.html.erb within layouts/application
+  Rendered home/examples.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_menu.erb (0.4ms)
+Completed 200 OK in 23ms (Views: 12.6ms)
+
+
+Started GET "/stylesheets/bootstrap.min.css.map" for 127.0.0.1 at 2017-02-12 22:17:19 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/stylesheets/bootstrap.min.css.map"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `call'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.9ms)
+  Rendered collection of /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [20 times] (11.9ms)
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (228.1ms)
+Started GET "/" for 127.0.0.1 at 2017-02-15 21:21:38 -0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_menu.erb (0.4ms)
+Completed 200 OK in 36ms (Views: 22.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-15 21:24:04 -0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (9.5ms)
+  Rendered layouts/_menu.erb (0.5ms)
+Completed 200 OK in 38ms (Views: 25.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-15 21:41:51 -0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_menu.erb (0.6ms)
+Completed 200 OK in 37ms (Views: 22.8ms)
+
+
