@@ -3023,3 +3023,101 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 37ms (Views: 22.8ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-02-16 18:35:54 -0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (10.9ms)
+  Rendered layouts/_menu.erb (0.6ms)
+Completed 200 OK in 45ms (Views: 29.3ms)
+
+
+Started POST "/surveys" for 127.0.0.1 at 2017-02-16 18:36:24 -0800
+Processing by SurveysController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aHoscKW3G+AaRWmqZAHQMNGCdHFZFm5GF7hOMyvBpP347c8m5p2nhDqHdc2MO0UUqdyjA2q4Gtt+/vyFhqCnLw==", "survey"=>"Enter your survey title here\r\nAny text you enter here will display below the title.\r\n1) Example multiple choice question\r\n[ ] One\r\n[ ] Two\r\n[ ] Three\r\n2) Example radio list question\r\n( ) One\r\n( ) Two\r\n( ) Three\r\n3) Example rating between 1-5\r\n(1) (2) (3) (4) (5)\r\n4) Example text response question\r\n___\r\n5) You can do a multi-line textbox too!\r\n___\r\n___\r\n6) Example dropdown question\r\n< > One\r\n< > Two\r\n< > Three\r\n    "}
+MONGODB | Topology type 'unknown' initializing.
+MONGODB | Server 192.168.0.10:27017 initializing.
+MONGODB | execution expired
+Started GET "/about/" for 127.0.0.1 at 2017-02-16 18:36:39 -0800
+Processing by HomeController#about as HTML
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_menu.erb (1.0ms)
+Completed 200 OK in 24ms (Views: 13.2ms)
+
+
+Started GET "/help/" for 127.0.0.1 at 2017-02-16 18:36:41 -0800
+Processing by HomeController#help as HTML
+  Rendering home/help.html.erb within layouts/application
+  Rendered home/help.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_menu.erb (0.8ms)
+Completed 200 OK in 24ms (Views: 14.0ms)
+
+
+Started GET "/examples/" for 127.0.0.1 at 2017-02-16 18:36:41 -0800
+Processing by HomeController#examples as HTML
+  Rendering home/examples.html.erb within layouts/application
+  Rendered home/examples.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_menu.erb (0.5ms)
+Completed 200 OK in 19ms (Views: 8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-16 18:36:42 -0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_menu.erb (0.5ms)
+Completed 200 OK in 12ms (Views: 9.4ms)
+
+
+MONGODB | execution expired
+Started GET "/" for 127.0.0.1 at 2017-02-16 18:36:52 -0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_menu.erb (0.3ms)
+Completed 200 OK in 9ms (Views: 6.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-16 18:36:55 -0800
+Processing by HomeController#index as HTML
+MONGODB | execution expired
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_menu.erb (0.6ms)
+Completed 200 OK in 12ms (Views: 8.5ms)
+
+
+MONGODB | execution expired
+Completed 500 Internal Server Error in 40100ms
+
+
+  
+Mongo::Error::NoServerAvailable (No server is available matching preference: #<Mongo::ServerSelector::Primary:0x70164413992300 tag_sets=[] max_staleness=nil> using server_selection_timeout=30 and local_threshold=0.015):
+  
+app/controllers/surveys_controller.rb:106:in `block in create'
+app/controllers/surveys_controller.rb:105:in `create'
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.1ms)
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (17.0ms)
+  Rendering /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/jokeller/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (110.8ms)
+Started POST "/surveys" for 127.0.0.1 at 2017-02-16 18:37:08 -0800
+Processing by SurveysController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+5ICvyVAftB/FXFPQ6klKe3DDcP7Kt56pLen5p8UOchrBeHpZmrCtF/XbSirk7ANlZ3asciEqufN8RVQMnU6Gg==", "survey"=>"Enter your survey title here\r\nAny text you enter here will display below the title.\r\n1) Example multiple choice question\r\n[ ] One\r\n[ ] Two\r\n[ ] Three\r\n2) Example radio list question\r\n( ) One\r\n( ) Two\r\n( ) Three\r\n3) Example rating between 1-5\r\n(1) (2) (3) (4) (5)\r\n4) Example text response question\r\n___\r\n5) You can do a multi-line textbox too!\r\n___\r\n___\r\n6) Example dropdown question\r\n< > One\r\n< > Two\r\n< > Three\r\n    "}
+MONGODB | execution expired
+MONGODB | execution expired
+MONGODB | execution expired
+Completed   in 28179ms
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-16 18:37:52 -0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (7.8ms)
+  Rendered layouts/_menu.erb (0.3ms)
+Completed 200 OK in 38ms (Views: 23.5ms)
+
+
